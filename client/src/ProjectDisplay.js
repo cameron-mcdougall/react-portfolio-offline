@@ -40,17 +40,20 @@ class ProjectDisplay extends React.Component {
 			
 				<article className='project-display-wrap'>
 
-					<header>
-						<h2>{item.type}</h2>
-						<Link to='/'>
-							<button className='close'>Close X</button>
-						</Link>
-					</header>
+					
 
 					<div className='content-wrap'>
 						<section className='info-display'>
+							<header>
+								<Link to='/'>
+									<button className='close'>Close X</button>
+								</Link>
+							</header>
+							<aside className='project-details'>
+							<strong>Name:</strong> {item.title}<br />
+							<strong>Type:</strong> {item.type}
+							</aside>
 							<p>{item.copy}</p>
-							<h4>{item.title}</h4>
 							<ProjectPagination index={this.state.index} />
 						</section>
 

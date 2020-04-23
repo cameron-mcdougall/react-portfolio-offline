@@ -97,14 +97,16 @@ class Contact extends React.Component {
 		
 	}
 
-	resetForm(){
-			this.setState({
-				name: '',
-				email: '',
-				number: '',
-				message: ''
-			})
-		}
+	resetForm() {
+
+		this.setState({
+			name: '',
+			email: '',
+			number: '',
+			message: ''
+		})
+		
+	}
 
 	togglePreview(event) {
 

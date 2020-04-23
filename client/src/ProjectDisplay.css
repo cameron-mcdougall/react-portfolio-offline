@@ -37,7 +37,7 @@
 	max-width: 1200px;
 	position: relative;
 	margin-top: 100px;
-	padding: 0px 50px 50px;
+	padding: 50px;
 	background: white;
 	border-radius: 10px;
 	z-index: 10;
@@ -45,9 +45,15 @@
 
 .project-display-wrap header {
 	position: sticky;
-	top: 0px;
-	padding-top: 50px;
+	top: 50px;
+	justify-content: end;
 	padding-bottom: 50px;
+}
+
+.project-details {
+	position: sticky;
+	top: 50px;
+	margin-bottom: 50px;
 }
 
 .content-wrap {

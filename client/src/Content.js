@@ -106,7 +106,7 @@ export const portfolioElements = [
 	},
 	{ title: 'Kelvingrove Park',
 		 id: '/kelvingrove-park',
-	   type: 'Personal',
+	   type: 'Graphic',
 	   copy: 'Lacinia quis vel eros donec ac odio tempor orci dapibus. Dictumst quisque sagittis purus sit amet volutpat consequat mauris. Scelerisque fermentum dui faucibus in ornare quam viverra. Enim eu turpis egestas pretium aenean pharetra magna ac placerat. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tempus egestas sed sed risus pretium. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum.',
 	 images: [
 	 	'/img/kelvingrove-thumbnail.jpg',
@@ -121,7 +121,7 @@ export const portfolioElements = [
 	},
 	{ title: 'Poolside',
 		 id: '/poolside',
-	   type: 'Personal',
+	   type: 'Graphic',
 	   copy: 'Lacinia quis vel eros donec ac odio tempor orci dapibus. Dictumst quisque sagittis purus sit amet volutpat consequat mauris. Scelerisque fermentum dui faucibus in ornare quam viverra. Enim eu turpis egestas pretium aenean pharetra magna ac placerat. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tempus egestas sed sed risus pretium. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum.',
 	 images: [
 	 	'/img/poolside-thumbnail.jpg',
