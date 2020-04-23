@@ -1,0 +1,16 @@
+{
+  "name": "react-portfolio",
+  "version": "1.0.0",
+  "description": "ReactJS based frontend portfolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Cameron McDougall",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.5"
+  }
+}
