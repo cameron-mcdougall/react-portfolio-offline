@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProjectDisplay.css';
 import ProjectPagination from './ProjectPagination';
-import { portfolioElements } from './Content';
 
 
 class ProjectDisplay extends React.Component {
@@ -11,7 +10,8 @@ class ProjectDisplay extends React.Component {
 		super(props);
 
 		this.state = {
-			index: props.position
+			index: props.position, // current element from array map
+			array: props.array // current shuffled array
 		};
 	}
 
@@ -25,10 +25,11 @@ class ProjectDisplay extends React.Component {
 
 	render() {
 
-		let item = portfolioElements[this.state.index];
+		let shuffledArray = this.state.array;
+		let item = shuffledArray[this.state.index];
 
 		const imageDisplay = item.images.map((src, id) => 
-			<img key={id} src={src} />
+			<img key={id} src={src} alt='' />
 		)
 	
 		return(
@@ -40,18 +41,26 @@ class ProjectDisplay extends React.Component {
 			
 				<article className='project-display-wrap'>
 
-					<header>
-						<h2>{item.type}</h2>
-						<Link to='/'>
-							<button className='close'>Close X</button>
-						</Link>
-					</header>
+					<ProjectPagination index={this.state.index} array={this.state.array} loc='mobile' />
 
 					<div className='content-wrap'>
 						<section className='info-display'>
-							<p>{item.copy}</p>
-							<h4>{item.title}</h4>
-							<ProjectPagination index={this.state.index} />
+							<header>
+								<Link to='/'>
+									<button className='close'>Close X</button>
+								</Link>
+							
+								<aside className='project-details'>
+									<strong>Name:</strong> {item.title}<br />
+									<strong>Type:</strong> {item.type}
+								</aside>
+							</header>
+							<aside className='info-display-content'>
+								<p>{item.copy}</p>
+								{(item.type.includes('Web')) ? <p>The site can be <a href={item.url} target='_blank' rel="noopener noreferrer">viewed here</a></p> : null}
+							</aside>
+							<ProjectPagination index={this.state.index} array={this.state.array} loc='desktop' />
+							
 						</section>
 
 						<section className='image-display'>

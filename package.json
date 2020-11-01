@@ -5,12 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "start node server.js && (cd client && npm start)"
   },
   "author": "Cameron McDougall",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemailer": "^6.4.5"
+    "nodemailer": "^6.4.11"
   }
 }

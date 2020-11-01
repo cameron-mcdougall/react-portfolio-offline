@@ -4,6 +4,11 @@
 	justify-content: space-between;
 }
 
+.form-wrap h4,
+.form-wrap button {
+	margin-bottom: 20px;
+}
+
 .form-input form,
 .form-preview {
 	display: flex;
@@ -20,6 +25,14 @@
 	border: none;
 	border-bottom: 2px solid #222;
 	font-size: 1em;
+	transition: 0.1s; 
+}
+
+.darkmode .form-input input,
+.darkmode .form-input textarea {
+	color: #eaeaea;
+	border-bottom: 2px solid #eaeaea;
+	transition: 0.1s;
 }
 
 .form-input.preview-closed {
@@ -60,6 +73,11 @@
 	white-space: pre-wrap;
 }
 
+.darkmode .preview-contents {
+	background-color: #000;
+	border: 1px solid #212121;
+}
+
 .preview-entry {
 	font-size: 1.25em;
 	margin-bottom: 10px;
@@ -72,4 +90,25 @@
 .error-report {
 	color: red;
 	margin-bottom: 40px;
+}
+
+.grecaptcha-badge {
+	position: inherit!important;
+}
+
+@media (max-width: 1200px) {
+
+	.form-wrap {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.form-input.preview-closed,
+	.form-input.preview-open,
+	.form-preview.hidden,
+	.form-preview.showing {
+		width: 100%;
+		transform:translateX(0%);
+	}
+
 }

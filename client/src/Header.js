@@ -1,7 +1,8 @@
 import React from 'react';
 import './Header.css';
-import Nav from './Nav'
-import { mainNavElements } from './Content'
+import Nav from './Nav';
+import ThemeSwitch from './ThemeSwitch';
+import { mainNavElements } from './Content';
 
 const menuType = 'header';
 
@@ -10,6 +11,7 @@ function Header() {
 		<header>
 			<h1>Cameron McDougall</h1>
 			<Nav list={mainNavElements} type={menuType} />
+			<ThemeSwitch />
 		</header>
 	);
 }

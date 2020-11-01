@@ -1,23 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import './ItemPagination.css';
-import { portfolioElements } from './Content.js';
+
 
 function ProjectPagination(props) {
 
 	let index = Number(props.index);
+	let array = props.array;
+	let location = props.loc;
 	const prevIndex = index - 1;
 	const nextIndex = index + 1;
 
-	let prev = index === 0 ? null : <Link to={portfolioElements[prevIndex].id}>&#8249; Prev</Link>;
-	let next = index === (portfolioElements.length - 1) ? null : <Link to={portfolioElements[nextIndex].id}>Next &#8250;</Link>;
+	let prev = index === 0 ? null : <Link to={array[prevIndex].id} id='prev'><button className='pagination-button'>&#8249; Prev</button></Link>;
+	let next = index === (array.length - 1) ? null : <Link to={array[nextIndex].id} id='next'><button className='pagination-button'>Next &#8250;</button></Link>;
+
+	let centerFix = !prev ? 'start-fix'
+					: !next ? 'end-fix'
+					: 'no-probs';
+
 
 	return (
-		<div className='pagination'>
-
-			{prev}
-			{next}
-		</div>
+		<nav className='pagination' id={location}>
+			<div className='pagination-wrap'>
+				{prev}
+				<Link to='/' id={`close-btn ${centerFix}`}>
+					<button className='close'>Close X</button>
+				</Link>
+				{next}
+			</div>
+		</nav>
 	);
 
 }

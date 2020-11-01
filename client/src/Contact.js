@@ -24,7 +24,7 @@ class Contact extends React.Component {
 			email: '',
 			number: '',
 			message: '',
-			preview: false,
+			preview: true,
 			errors: {
 				name: '',
 				email: '',
@@ -97,14 +97,16 @@ class Contact extends React.Component {
 		
 	}
 
-	resetForm(){
-			this.setState({
-				name: '',
-				email: '',
-				number: '',
-				message: ''
-			})
-		}
+	resetForm() {
+
+		this.setState({
+			name: '',
+			email: '',
+			number: '',
+			message: ''
+		})
+		
+	}
 
 	togglePreview(event) {
 
@@ -114,15 +116,20 @@ class Contact extends React.Component {
 
 	render() {
 		return (
-			<section className='form-wrap'>
-				<Form
-					prev={this.state}
-					handleChange={this.updateInputChange.bind(this)}
-					handleSubmit={this.handleSubmit.bind(this)} 
-					togglePreview={this.togglePreview.bind(this)}
-				/>
-				<FormPreview prev={this.state} />
-			</section>
+			<React.Fragment>
+				<section className='intro'>
+					<p>I'm only ever a few keystrokes and one bot check away so feel free to send me a message if you'd be interested in working with me! I've included a message preview that was originally me flexing at ReactJS states but found it's actually quite nice for proofreading before sending! Fun, eh?</p>
+				</section>
+				<section className='form-wrap'>
+					<Form
+						prev={this.state}
+						handleChange={this.updateInputChange.bind(this)}
+						handleSubmit={this.handleSubmit.bind(this)} 
+						togglePreview={this.togglePreview.bind(this)}
+					/>
+					<FormPreview prev={this.state} />
+				</section>
+			</React.Fragment>
 		);
 	}
 }
