@@ -16,6 +16,7 @@ class Form extends React.Component {
 		return (
 			<section className={`form-input ${previewState}`}>
 				<h4>Get in touch</h4>
+				<button type='button' onClick={this.props.togglePreview}>{toggleState}</button>
 				<form id='input-form' method='POST'>
 					<label>Name*:
 						<input name='name' type='text' onChange={this.props.handleChange} value={state.name} required />
@@ -45,7 +46,7 @@ class Form extends React.Component {
 					<RecaptchaTestComponent />
 						<input type='submit' value='Send' onClick={this.props.handleSubmit}/>
 								<div className='error-report'>{errors.submit}</div>
-						<button type='button' onClick={this.props.togglePreview}>{toggleState}</button>
+						
 					</div>
 				</form>
 				

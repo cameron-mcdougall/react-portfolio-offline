@@ -2,10 +2,17 @@ body {
   background-color: #f2f2f2;
   padding: 20px;
   margin: 0;
-  font-family: 'Nunito Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Hind Siliguri', 'Nunito Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 18px;
+  transition: 0.1s;
+}
+
+body.darkmode {
+  color: #eaeaea;
+  background-color: #222;
+  transition: 0.1s;
 }
 
 code {
@@ -14,15 +21,27 @@ code {
 }
 
 h1, h2, h3, h4, h5 {
-	font-size: 2.75em;
+	font-size: calc(16px + 1.9vw);
   line-height: 1.2;
 	letter-spacing: 0.125em;
 	text-transform: uppercase;
 	color: #222;
+  margin: 0;
+  transition: 0.1s;
+}
+
+.darkmode h1, .darkmode h2, .darkmode h3, .darkmode h4, .darkmode h5 {
+  color: #eaeaea;
+  transition: 0.1s;
 }
 
 p {
   margin-top: 0;
+}
+
+#root {
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .content {
@@ -36,4 +55,21 @@ p {
 
 .content li {
   margin-bottom: 10px;
+}
+
+.intro {
+  border-bottom: 2px solid #222;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  transition: 0.1s;
+}
+
+.darkmode .intro {
+  border-bottom: 2px solid #eaeaea;
+  transition: 0.1s;
+}
+
+.mail-server-status {
+  padding-left: 20px;
+  margin-bottom: 50px;
 }

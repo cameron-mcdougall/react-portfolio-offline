@@ -9,13 +9,12 @@ import Contact from './Contact';
 import Header from './Header';
 import Footer from './Footer';
 
-
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      data: null
+      data: null,
     };
   }
 
@@ -36,7 +35,7 @@ class App extends React.Component {
       throw Error(body.message)
     }
     return body;
-  };
+  }
 
   render() {
 
@@ -45,7 +44,7 @@ class App extends React.Component {
         <React.Fragment>
 
           <Header />
-
+          
           <main className='content'>
             <Route exact path='/' component={Work} />
             <Route path='/about' component={About} />
@@ -53,12 +52,12 @@ class App extends React.Component {
           </main>
 
           <Footer />
-          <p className="App-intro">{this.state.data}</p>
+          <p className='mail-server-status'>{this.state.data}</p>
         </React.Fragment>
-      </Router>  
+      </Router>
     );
-
   }
+
 }
 
 export default App;

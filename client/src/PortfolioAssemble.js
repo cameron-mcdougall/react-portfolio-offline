@@ -50,7 +50,7 @@ class PortfolioAssemble extends React.Component {
 
 		// Map corrisponding Routes for PorjectDisplay
 		const portfolioItemAssembly = Object.keys(shuffledPortfolio).map(element =>
-			<Route key={element} path={shuffledPortfolio[element].id} render={(props) => <ProjectDisplay {...props} position={element} />} />
+			<Route key={element} path={shuffledPortfolio[element].id} render={(props) => <ProjectDisplay {...props} position={element} array={shuffledPortfolio} />} />
 		)
 
 		return (

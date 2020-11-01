@@ -53,7 +53,7 @@ app.post('/send', (req, res, next) => {
 
 	var mail = {
 		from: `${name} <${email}>`,
-		to: '/*email address*/',
+		to: 'email@email.com',
 		subject: 'Enquiry from portfolio',
 
 		html: `<h4><strong>Name:</strong> ${name}</h4>
