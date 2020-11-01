@@ -40,7 +40,7 @@ app.use(express.json());
 
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "https://cameronmcdougall.eu"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -53,7 +53,7 @@ app.post('/send', (req, res, next) => {
 
 	var mail = {
 		from: `${name} <${email}>`,
-		to: 'email@email.com',
+		to: 'hey@cameronmcdougall.eu',
 		subject: 'Enquiry from portfolio',
 
 		html: `<h4><strong>Name:</strong> ${name}</h4>
