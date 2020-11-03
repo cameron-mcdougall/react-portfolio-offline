@@ -8,13 +8,13 @@ class Filter extends React.Component {
 			<nav className='filter'>
 				Sort items:
 				<ul>
-					<li class='bounce' style={{animationDelay: 0.06 +'s'}}><button onClick={(e) =>
+					<li className='bounce' style={{animationDelay: 0.06 +'s'}}><button onClick={(e) =>
 						this.props.filterUpdate(e, 'All')}>All</button></li>
-					<li class='bounce' style={{animationDelay: 0.12+'s'}}><button onClick={(e) =>
+					<li className='bounce' style={{animationDelay: 0.12+'s'}}><button onClick={(e) =>
 						this.props.filterUpdate(e, 'Web')}>Web</button></li>
-					<li class='bounce' style={{animationDelay: 0.18+'s'}}><button onClick={(e) =>
+					<li className='bounce' style={{animationDelay: 0.18+'s'}}><button onClick={(e) =>
 						this.props.filterUpdate(e, 'Branding')}>Branding</button></li>
-					<li class='bounce' style={{animationDelay: 0.24+'s'}}><button onClick={(e) =>
+					<li className='bounce' style={{animationDelay: 0.24+'s'}}><button onClick={(e) =>
 						this.props.filterUpdate(e, 'Graphic')}>Graphic</button></li>
 				</ul>
 			</nav>
