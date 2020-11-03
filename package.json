@@ -4,13 +4,17 @@
   "description": "ReactJS based frontend portfolio",
   "main": "server.js",
   "scripts": {
+    "dev:api": "node server.js",
+    "dev:client": "cd /client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "start node server.js && (cd client && npm start)"
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "author": "Cameron McDougall",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^5.3.0",
     "express": "^4.17.1",
     "nodemailer": "^6.4.11"
   }
