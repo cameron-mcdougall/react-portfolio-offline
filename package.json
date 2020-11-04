@@ -2,16 +2,22 @@
   "name": "react-portfolio",
   "version": "1.0.0",
   "description": "ReactJS based frontend portfolio",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:lambda": "netlify-lambda serve api",
-    "build:lambda": "netlify-lambda build api",
-    "start:app": "cd client && npm run start",
-    "build:app": "cd client && npm run build",
-  },
   "author": "Cameron McDougall",
   "license": "ISC",
+  "scripts": {
+    "start": "run-p start:**",
+    "start:lambda": "netlify-lambda serve api",
+    "start:app": "cd client && yarn start",
+    "build": "run-p build:**",
+    "build:lambda": "netlify-lambda build api",
+    "build:app": "cd client && yarn build",
+    "deploy:draft": "netlify deploy --dir=client/build --functions=functions",
+    "deploy:prod": "netlify deploy --dir=client/build --functions=functions --prod"
+  },
+  "devDependencies": {
+    "netlify-lambda": "^1.6.3",
+    "npm-run-all": "^4.1.5"
+  },
   "dependencies": {
     "concurrently": "^5.3.0",
     "express": "^4.17.1",
