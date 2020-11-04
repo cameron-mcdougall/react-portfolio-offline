@@ -76,7 +76,7 @@ class Contact extends React.Component {
 			console.info('Valid Form');
 			axios({
 			method: 'POST',
-			url: 'https://cameronmcdougall.eu/send',
+			url: '/api/sendmail',
 			data: {
 				name: this.state.name,
 				email: this.state.email,
