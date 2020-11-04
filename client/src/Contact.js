@@ -76,7 +76,7 @@ class Contact extends React.Component {
 			console.info('Valid Form');
 			axios({
 			method: 'POST',
-			url: '/functions/sendmail',
+			url: '/.netlify/functions/sendmail',
 			data: {
 				name: this.state.name,
 				email: this.state.email,
