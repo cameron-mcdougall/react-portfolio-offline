@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "react-scripts build",
-    "start": "node server.js",
-    "backend": "node server.js"
+    "start:lambda": "netlify-lambda serve api",
+    "build:lambda": "netlify-lambda build api",
+    "start:app": "cd client && npm run start",
+    "build:app": "cd client && npm run build",
   },
   "author": "Cameron McDougall",
   "license": "ISC",
