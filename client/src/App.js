@@ -20,9 +20,9 @@ class App extends React.Component {
 
   componentDidMount() {
     // Call the fetch function below once the component mounts
-    this.callBackendAPI()
-      .then(res => this.setState({ data: res.express }))
-      .catch(err => console.log(err));
+    //this.callBackendAPI()
+    //  .then(res => this.setState({ data: res.express }))
+    //  .catch(err => console.log(err));
 
     loadReCaptcha();  
   }

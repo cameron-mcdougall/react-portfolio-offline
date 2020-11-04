@@ -6,7 +6,7 @@ exports.handler = function(event, context, callback) {
 
     let transporter = nodemailer.createTransport({
         host: 'smtp.ionos.co.uk',
-        port: 8888,
+        port: 9000,
         auth:{
          user: 'hey@cameronmcdougall.eu',
          pass: 'Crooked.Nose@@!23'
