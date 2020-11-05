@@ -30,7 +30,10 @@ class Contact extends React.Component {
 				email: '',
 				number: '',
 				message: ''
-			}
+			},
+			response: '',
+    		post: '',
+   			responseToPost: '',
 		};
 
 		this.updateInputChange = this.updateInputChange.bind(this);
@@ -68,49 +71,68 @@ class Contact extends React.Component {
 
 	}
 
-	//handleSubmit(event) {
-
-	//	event.preventDefault();
-
-	//	if (validateForm(this.state.errors)) {
-	//		console.info('Valid Form');
-	//		axios({
-	//		method: 'POST',
-	//		url: '/api/sendmail',
-	//		data: {
-	//			name: this.state.name,
-	//			email: this.state.email,
-	//			number: this.state.number,
-	//			message: this.state.message 
-	//		}
-	//	}).then((response) => {
-	//		if (response.data.msg === 'success') {
-	//			alert('Email sent, awesome!');
-	//			this.resetForm()
-	//		} else if (response.data.msg === 'fail') {
-	//			alert('Oops, something went wrong. Try again')
-	//		}
-	//	})
-	//	} else {
-//
-//		}
-		
-//	}
+	// New Code
+	
+	componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({ response: res.msg }))
+      .catch(err => console.log(err));
+  	}
+	
+	callApi = async () => {
+  		const response = await fetch('/.netlify/functions/hello');
+  		const body = await response.json();  if (response.status !== 200) throw Error(body.message);  return body;
+	};
 
 	handleSubmit = async e => {
-    e.preventDefault();
-    const response = await fetch('/.netlify/functions/server/api/world', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ post: this.state.post }),
-    });
-    const body = await response.text();
+		
+		e.preventDefault();
+		
+		const response = await fetch('/.netlify/functions/world', {
+			method: 'POST',
+    		headers: {
+      			'Content-Type': 'application/json',
+    		},
+    		body: JSON.stringify({
+    			name: this.state.name,
+    			email: this.state.email,
+    			number: this.state.number,
+    			message: this.state.message
+    		}),
+  		});
+  		
+  		const body = await response.text();
+  		this.setState({ responseToPost: body });
+	};
 
-    this.setState({ responseToPost: body });
-  };
+	/*handleSubmit(event) {
 
+		event.preventDefault();
+
+		if (validateForm(this.state.errors)) {
+			console.info('Valid Form');
+			axios({
+			method: 'POST',
+			url: 'http://localhost:3000/send',
+			data: {
+				name: this.state.name,
+				email: this.state.email,
+				number: this.state.number,
+				message: this.state.message 
+			}
+		}).then((response) => {
+			if (response.data.msg === 'success') {
+				alert('Email sent, awesome!');
+				this.resetForm()
+			} else if (response.data.msg === 'fail') {
+				alert('Oops, something went wrong. Try again')
+			}
+		})
+		} else {
+
+		}
+		
+	}*/
 
 	resetForm() {
 
@@ -135,6 +157,9 @@ class Contact extends React.Component {
 				<section className='intro'>
 					<p>I'm only ever a few keystrokes and one bot check away so feel free to send me a message if you'd be interested in working with me! I've included a message preview that was originally me flexing at ReactJS states but found it's actually quite nice for proofreading before sending! Fun, eh?</p>
 				</section>
+				<span>{this.state.response}</span>
+				<span>{this.state.post}</span>
+				<span>{this.state.responseToPost}</span>
 				<section className='form-wrap'>
 					<Form
 						prev={this.state}
