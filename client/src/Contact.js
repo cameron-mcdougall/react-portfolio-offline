@@ -92,21 +92,30 @@ class Contact extends React.Component {
 		
 		e.preventDefault();
 		
-		const response = await fetch('/.netlify/functions/server/api/world', {
-			method: 'POST',
-    		headers: {
-      			'Content-Type': 'application/json',
-    		},
-    		body: JSON.stringify({
-    			name: this.state.name,
-    			email: this.state.email,
-    			numberr: this.state.number,
-    			message: this.state.message
-    		}),
-  		});
+		if (validateForm(this.state.errors)) {
+			const response = await fetch('/.netlify/functions/server/api/world', {
+				method: 'POST',
+    			headers: {
+      				'Content-Type': 'application/json',
+    			},
+    			body: JSON.stringify({
+    				name: this.state.name,
+    				email: this.state.email,
+    				numberr: this.state.number,
+    				message: this.state.message
+    			}),
+  			});
+  		}
   		
   		const body = await response.text();
-  		this.setState({ responseToPost: body });
+  		const sendTest = await response.statusCode;
+
+  		(sendTest === 200) ?
+  			(alert('Email sent, awesome!');
+			this.resetForm();
+  			this.setState({ responseToPost: body });) :
+  			alert('Something went wrong. Maybe try again?');
+
 	};
 
 	/*handleSubmit(event) {
@@ -139,20 +148,18 @@ class Contact extends React.Component {
 	}*/
 
 	resetForm() {
-
 		this.setState({
 			name: '',
 			email: '',
 			number: '',
 			message: ''
 		})
-		
 	}
 
 	togglePreview(event) {
-
-		(this.state.preview === true) ? this.setState({preview: false}) : this.setState({preview: true})
-
+		(this.state.preview === true) ? 
+			this.setState({preview: false}) : 
+			this.setState({preview: true})
 	}
 
 	render() {
@@ -160,16 +167,16 @@ class Contact extends React.Component {
 			<React.Fragment>
 				<section className='intro'>
 					<p>I'm only ever a few keystrokes and one bot check away so feel free to send me a message if you'd be interested in working with me! I've included a message preview that was originally me flexing at ReactJS states but found it's actually quite nice for proofreading before sending! Fun, eh?</p>
+					<p className='mail-server-status'>{this.state.response}</p>
 				</section>
-				<span>{this.state.response}</span> +
-				<span>{this.state.post}</span> +
-				<span>{this.state.responseToPost}</span>
+				
 				<section className='form-wrap'>
 					<Form
 						prev={this.state}
 						handleChange={this.updateInputChange.bind(this)}
 						handleSubmit={this.handleSubmit.bind(this)} 
 						togglePreview={this.togglePreview.bind(this)}
+						sendState={this.state.responseToPost}
 					/>
 					<FormPreview prev={this.state} />
 				</section>

@@ -45,6 +45,7 @@ class Form extends React.Component {
 					<div className='form-button-wrap'>
 					<RecaptchaTestComponent />
 						<input type='submit' value='Send' onClick={this.props.handleSubmit}/>
+						<span>{this.props.sendState}</span>
 								<div className='error-report'>{errors.submit}</div>
 						
 					</div>

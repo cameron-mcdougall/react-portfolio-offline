@@ -60,14 +60,6 @@ exports.handler = function (event, context, callback) {
 	
 	callback(null, {
 		statusCode: 200,
-		body: `I received your POST request. This is what you sent me: ${body.name}`,
+		body: `Thanks, ${body.name}! Your message has been successfuly sent.`,
 	});
 }
-
-
-
-
-
-
-
-
