@@ -17,7 +17,7 @@ class Form extends React.Component {
 			<section className={`form-input ${previewState}`}>
 				<h4>Get in touch</h4>
 				<button type='button' onClick={this.props.togglePreview}>{toggleState}</button>
-				<form id='input-form' method='POST'>
+				<form id='input-form' method='POST' action='send'>
 					<label>Name*:
 						<input name='name' type='text' onChange={this.props.handleChange} value={state.name} required />
 						{errors.name.length > 0 &&

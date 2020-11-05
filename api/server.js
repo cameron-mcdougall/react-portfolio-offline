@@ -4,13 +4,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const router = express.Router();
-const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// console.log that server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // API calls
 router.get('/api/hello', (req, res) => {

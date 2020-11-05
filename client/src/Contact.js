@@ -161,8 +161,8 @@ class Contact extends React.Component {
 				<section className='intro'>
 					<p>I'm only ever a few keystrokes and one bot check away so feel free to send me a message if you'd be interested in working with me! I've included a message preview that was originally me flexing at ReactJS states but found it's actually quite nice for proofreading before sending! Fun, eh?</p>
 				</section>
-				<span>{this.state.response}</span>
-				<span>{this.state.post}</span>
+				<span>{this.state.response}</span> +
+				<span>{this.state.post}</span> +
 				<span>{this.state.responseToPost}</span>
 				<section className='form-wrap'>
 					<Form
