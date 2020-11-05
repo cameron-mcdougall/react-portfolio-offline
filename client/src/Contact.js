@@ -100,7 +100,7 @@ class Contact extends React.Component {
     		body: JSON.stringify({
     			name: this.state.name,
     			email: this.state.email,
-    			number: this.state.number,
+    			numberr: this.state.number,
     			message: this.state.message
     		}),
   		});
