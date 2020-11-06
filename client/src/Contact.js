@@ -1,6 +1,5 @@
 import React from 'react';
 import './Contact.css';
-import axios from 'axios';
 import Form from './Form';
 import FormPreview from './FormPreview';
 
@@ -124,35 +123,6 @@ class Contact extends React.Component {
   			}, 5000)
   		}
 	}
-
-	/*handleSubmit(event) {
-
-		event.preventDefault();
-
-		if (validateForm(this.state.errors)) {
-			console.info('Valid Form');
-			axios({
-			method: 'POST',
-			url: 'http://localhost:3000/send',
-			data: {
-				name: this.state.name,
-				email: this.state.email,
-				number: this.state.number,
-				message: this.state.message 
-			}
-		}).then((response) => {
-			if (response.data.msg === 'success') {
-				alert('Email sent, awesome!');
-				this.resetForm()
-			} else if (response.data.msg === 'fail') {
-				alert('Oops, something went wrong. Try again')
-			}
-		})
-		} else {
-
-		}
-		
-	}*/
 
 	resetForm() {
 		this.setState({
