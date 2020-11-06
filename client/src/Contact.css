@@ -92,8 +92,17 @@
 	margin-bottom: 40px;
 }
 
+.mail-server-status {
+	opacity: 0.4;
+}
+
 .grecaptcha-badge {
 	position: inherit!important;
+}
+
+.send-status-message {
+	margin-bottom: 50px;
+	margin-top: 20px;
 }
 
 @media (max-width: 1200px) {

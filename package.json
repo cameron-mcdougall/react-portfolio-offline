@@ -1,12 +1,12 @@
 {
-  "name": "react-portfolio",
+  "name": "my-webpack-project",
   "version": "1.0.0",
-  "description": "ReactJS based frontend portfolio",
+  "description": "My webpack project",
   "scripts": {
     "start": "concurrently \"npm run start:app\" \"npm run start:lambda\"",
     "start:app": "cd client && react-scripts start",
     "start:lambda": "netlify-lambda serve api",
-    "build": "concurrently \"npm run build:app\" \"npm run build:lambda\"",
+    "build": "webpack",
     "build:app": "cd client && react-scripts build",
     "build:lambda": "netlify-lambda build api",
     "test": "react-scripts test",
@@ -20,9 +20,23 @@
     "body-parser": "^1.19.0",
     "concurrently": "^5.3.0",
     "express": "^4.17.1",
+    "netlify-cli": "^2.68.0",
     "netlify-lambda": "^2.0.1",
     "nodemailer": "^6.4.14",
-    "serverless-http": "^2.6.0",
+    "react-scripts": "^4.0.0",
+    "serverless-http": "^2.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@webpack-cli/init": "^1.0.3",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "css-loader": "^5.0.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.2.0",
     "webpack-node-externals": "^2.5.2"
   }
 }

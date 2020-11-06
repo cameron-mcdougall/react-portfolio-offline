@@ -68,8 +68,3 @@ p {
   border-bottom: 2px solid #eaeaea;
   transition: 0.1s;
 }
-
-.mail-server-status {
-  padding-left: 20px;
-  margin-bottom: 50px;
-}

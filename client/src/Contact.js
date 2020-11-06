@@ -34,6 +34,7 @@ class Contact extends React.Component {
 			response: '',
     		post: '',
    			responseToPost: '',
+   			responseToPostStatus: ''
 		};
 
 		this.updateInputChange = this.updateInputChange.bind(this);
@@ -101,22 +102,28 @@ class Contact extends React.Component {
     			body: JSON.stringify({
     				name: this.state.name,
     				email: this.state.email,
-    				numberr: this.state.number,
+    				number: this.state.number,
     				message: this.state.message
     			}),
   			});
-  		}
   		
-  		const body = await response.text();
-  		const sendTest = await response.statusCode;
+  		
+  			const body = await response.json();
+  			this.setState({ 
+				responseToPost: body.msg,
+  				responseToPostStatus: body.code, 
+  			});
+  			console.log(this.state.responseToPostStatus);
 
-  		(sendTest === 200) ?
-  			(alert('Email sent, awesome!');
-			this.resetForm();
-  			this.setState({ responseToPost: body });) :
-  			alert('Something went wrong. Maybe try again?');
-
-	};
+  			setTimeout(() => {
+  				if (this.state.responseToPostStatus === 200) {
+  					this.resetForm()
+  				} else { 
+  					return null
+  				}
+  			}, 5000)
+  		}
+	}
 
 	/*handleSubmit(event) {
 
@@ -152,7 +159,13 @@ class Contact extends React.Component {
 			name: '',
 			email: '',
 			number: '',
-			message: ''
+			message: '',
+			errors: {
+				name: '',
+				email: '',
+				number: '',
+				message: ''
+			}
 		})
 	}
 

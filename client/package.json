@@ -46,6 +46,8 @@
     "concurrently": "^5.3.0",
     "http-proxy-middleware": "^1.0.6",
     "netlify": "^4.9.0",
-    "netlify-lambda": "^2.0.1"
+    "netlify-lambda": "^2.0.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.2.0"
   }
 }
