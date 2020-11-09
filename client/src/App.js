@@ -37,7 +37,6 @@ class App extends React.Component {
           </main>
 
           <Footer />
-          <p className='mail-server-status'>{this.state.data}</p>
         </React.Fragment>
       </Router>
     );
