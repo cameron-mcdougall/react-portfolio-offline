@@ -10,7 +10,7 @@ exports.handler = function (event, context, callback) {
 	const creds = require('./config');
 
 	var transport = {
-		host: 'smtp.ionos.co.uk',
+		host: '',
 		auth: {
 			user: creds.USER,
 			pass: creds.PASS
@@ -37,7 +37,7 @@ exports.handler = function (event, context, callback) {
 
 	var mail = {
 		from: `${name} <${email}>`,
-		to: 'hey@cameronmcdougall.eu',
+		to: '',
 		subject: 'Enquiry from portfolio',
 
 		html: `<h4><strong>Name:</strong> ${name}</h4>
