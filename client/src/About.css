@@ -25,6 +25,10 @@
 	text-align: right;
 }
 
+#personal span {
+	margin-right: 5px;
+}
+
 .cv-block {
 	margin-bottom: 60px;
 }
@@ -35,7 +39,7 @@
 }
 
 .cv-block h4 {
-	color: mediumseagreen;
+	color: #88b04b;
 	margin-bottom: 20px;
 }
 
