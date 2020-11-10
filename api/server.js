@@ -23,7 +23,7 @@ router.post('/api/world', (req, res) => {
 	const creds = require('./config');
 
 	var transport = {
-		host: 'smtp.ionos.co.uk',
+		host: '',
 		auth: {
 			user: creds.USER,
 			pass: creds.PASS
@@ -50,7 +50,7 @@ router.post('/api/world', (req, res) => {
 
 	var mail = {
 		from: `${name} <noreply@cameronmcdougall.eu>`,
-		to: 'hey@cameronmcdougall.eu',
+		to: '',
 		subject: 'Enquiry from portfolio',
 
 		html: `<h4><strong>Name:</strong> ${name}</h4>
